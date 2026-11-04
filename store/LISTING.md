@@ -47,6 +47,7 @@ Shorts Autoscroll is an independent project and is not affiliated with or endors
 | Store icon | `../extension/icons/icon128.png` | 128×128 |
 | Screenshot | `screenshot-1.png` | 1280×800 |
 | Small promo tile | `promo-small.png` | 440×280 |
+| Marquee promo tile | `promo-marquee.png` | 1400×560 |
 
 **Official URL / Homepage URL:** https://github.com/aaimang/shorts-autoscroll
 
