@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "Shorts Autoscroll",
+  "short_name": "Autoscroll",
+  "version": "1.0.0",
+  "description": "Moves to the next YouTube Short when one ends, or after a set number of seconds.",
+  "minimum_chrome_version": "102",
+  "permissions": ["storage"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["settings.js", "content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "Shorts Autoscroll",
+    "default_popup": "popup.html",
+    "default_icon": { "16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png" }
+  },
+  "icons": { "16": "icons/icon16.png", "32": "icons/icon32.png", "48": "icons/icon48.png", "128": "icons/icon128.png" },
+  "commands": {
+    "toggle": {
+      "suggested_key": { "default": "Alt+Shift+S" },
+      "description": "Turn autoscroll on or off"
+    }
+  }
+}

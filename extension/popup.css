@@ -1,0 +1,172 @@
+:root {
+  --bg: #ffffff;
+  --surface: #f4f4f5;
+  --line: #e4e4e7;
+  --text: #18181b;
+  --muted: #71717a;
+  --accent: #18181b;
+  --on-accent: #ffffff;
+  --live: #16a34a;
+  --wait: #d97706;
+  color-scheme: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #18181b;
+    --surface: #27272a;
+    --line: #3f3f46;
+    --text: #fafafa;
+    --muted: #a1a1aa;
+    --accent: #fafafa;
+    --on-accent: #18181b;
+    --live: #4ade80;
+    --wait: #fbbf24;
+  }
+}
+
+* { box-sizing: border-box; margin: 0; }
+
+body {
+  width: 300px;
+  background: var(--bg);
+  color: var(--text);
+  font: 13px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+h1 { font-size: 14px; font-weight: 600; letter-spacing: -0.01em; }
+
+h2 {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+main { transition: opacity 0.15s; }
+main.off { opacity: 0.45; pointer-events: none; }
+
+section { padding: 14px 16px; }
+section + section { border-top: 1px solid var(--line); padding-top: 4px; padding-bottom: 4px; }
+
+/* Switch */
+.switch { position: relative; width: 34px; height: 20px; cursor: pointer; }
+.switch input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.switch span {
+  position: absolute; inset: 0;
+  background: var(--line);
+  border-radius: 999px;
+  transition: background 0.15s;
+}
+.switch span::after {
+  content: "";
+  position: absolute; top: 2px; left: 2px;
+  width: 16px; height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.25);
+  transition: transform 0.15s;
+}
+.switch input:checked + span { background: var(--accent); }
+.switch input:checked + span::after { transform: translateX(14px); background: var(--on-accent); }
+.switch input:focus-visible + span { outline: 2px solid var(--muted); outline-offset: 2px; }
+
+/* Segmented control */
+.segmented {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 2px;
+  background: var(--surface);
+  border-radius: 8px;
+}
+.segmented label { position: relative; cursor: pointer; }
+.segmented input { position: absolute; opacity: 0; }
+.segmented span {
+  display: block;
+  padding: 6px 0;
+  text-align: center;
+  font-weight: 500;
+  color: var(--muted);
+  border-radius: 6px;
+  transition: color 0.15s, background 0.15s;
+}
+.segmented input:checked + span {
+  background: var(--bg);
+  color: var(--text);
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.08), 0 0 0 1px var(--line);
+}
+.segmented input:focus-visible + span { outline: 2px solid var(--muted); }
+
+/* Rows */
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 40px;
+  margin-top: 6px;
+}
+.row[hidden] { display: none; }
+.label { font-weight: 500; }
+.hint { font-size: 11px; color: var(--muted); }
+.check { cursor: pointer; }
+.check input { width: 15px; height: 15px; accent-color: var(--accent); cursor: pointer; }
+
+/* Stepper */
+.stepper {
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  overflow: hidden;
+}
+.stepper button {
+  width: 28px; height: 28px;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  font-size: 15px;
+  cursor: pointer;
+}
+.stepper button:hover:not(:disabled) { background: var(--surface); }
+.stepper button:disabled { color: var(--line); cursor: default; }
+.stepper output {
+  min-width: 40px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+  font-weight: 500;
+}
+
+/* Footer */
+footer {
+  padding: 12px 16px 14px;
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+}
+.status { display: flex; align-items: center; gap: 8px; font-weight: 500; }
+.dot { width: 7px; height: 7px; border-radius: 50%; background: var(--muted); flex: none; }
+.dot.live { background: var(--live); }
+.dot.wait { background: var(--wait); }
+
+.bar { height: 3px; margin: 10px 0; background: var(--line); border-radius: 2px; overflow: hidden; }
+.bar div { height: 100%; width: 0; background: var(--text); transition: width 0.25s linear; }
+.bar.idle { visibility: hidden; margin: 4px 0; height: 0; }
+
+.meta { display: flex; justify-content: space-between; align-items: center; color: var(--muted); font-size: 11px; }
+kbd {
+  font: inherit;
+  padding: 0 4px;
+  margin-left: 3px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--bg);
+}

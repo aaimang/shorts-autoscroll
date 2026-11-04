@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <header>
+    <h1>Shorts Autoscroll</h1>
+    <label class="switch" title="Alt+Shift+S">
+      <input type="checkbox" id="enabled">
+      <span aria-hidden="true"></span>
+    </label>
+  </header>
+
+  <main id="settings">
+    <section>
+      <h2>Move to the next Short</h2>
+      <div class="segmented" role="radiogroup">
+        <label><input type="radio" name="mode" value="end"><span>When it ends</span></label>
+        <label><input type="radio" name="mode" value="timer"><span>On a timer</span></label>
+      </div>
+
+      <div class="row" data-mode="end">
+        <div>
+          <div class="label">Plays per Short</div>
+          <div class="hint">Times to watch before moving on</div>
+        </div>
+        <div class="stepper">
+          <button type="button" data-step="plays" data-dir="-1" aria-label="Fewer plays">−</button>
+          <output id="plays"></output>
+          <button type="button" data-step="plays" data-dir="1" aria-label="More plays">+</button>
+        </div>
+      </div>
+
+      <div class="row" data-mode="timer">
+        <div>
+          <div class="label">Interval</div>
+          <div class="hint">Playback time per Short</div>
+        </div>
+        <div class="stepper">
+          <button type="button" data-step="seconds" data-dir="-1" aria-label="Shorter">−</button>
+          <output id="seconds"></output>
+          <button type="button" data-step="seconds" data-dir="1" aria-label="Longer">+</button>
+        </div>
+      </div>
+
+      <label class="row check" data-mode="timer">
+        <span class="label">Move sooner if the Short ends</span>
+        <input type="checkbox" id="endEarly">
+      </label>
+    </section>
+
+    <section>
+      <label class="row check">
+        <span class="label">Hold while comments are open</span>
+        <input type="checkbox" id="holdOnComments">
+      </label>
+    </section>
+  </main>
+
+  <footer>
+    <div class="status">
+      <span class="dot" id="dot"></span>
+      <span id="status">—</span>
+    </div>
+    <div class="bar"><div id="bar"></div></div>
+    <div class="meta">
+      <span id="count"></span>
+      <span><kbd>Alt</kbd><kbd>Shift</kbd><kbd>S</kbd></span>
+    </div>
+  </footer>
+
+  <script src="settings.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>
