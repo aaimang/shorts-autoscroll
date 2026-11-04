@@ -18,4 +18,4 @@ None. The extension has no servers, analytics or tracking, and it loads no remot
 
 ## Contact
 
-Questions about this policy: open an issue on the project's GitHub repository.
+Questions about this policy: open an issue at https://github.com/aaimang/shorts-autoscroll/issues.

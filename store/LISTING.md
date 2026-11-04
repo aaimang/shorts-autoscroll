@@ -48,9 +48,9 @@ Shorts Autoscroll is an independent project and is not affiliated with or endors
 | Screenshot | `screenshot-1.png` | 1280×800 |
 | Small promo tile | `promo-small.png` | 440×280 |
 
-**Official URL / Homepage URL:** your GitHub repository URL
+**Official URL / Homepage URL:** https://github.com/aaimang/shorts-autoscroll
 
-**Support URL:** `<repo URL>/issues`
+**Support URL:** https://github.com/aaimang/shorts-autoscroll/issues
 
 ---
 
@@ -75,7 +75,7 @@ Tick all three certifications:
 - I do not use or transfer user data for purposes that are unrelated to my item's single purpose
 - I do not use or transfer user data to determine creditworthiness or for lending purposes
 
-**Privacy policy URL:** the GitHub link to `PRIVACY.md`, e.g. `https://github.com/<user>/shorts-autoscroll/blob/main/PRIVACY.md`
+**Privacy policy URL:** https://github.com/aaimang/shorts-autoscroll/blob/main/PRIVACY.md
 
 ---
 
